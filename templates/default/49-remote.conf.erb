@@ -5,7 +5,7 @@ $ActionResumeRetryCount -1 # infinite retries on insert failure
 $ActionQueueSaveOnShutdown on # save in-memory data if rsyslog shuts down
 
 # define custom log forward format, forcing the hostname for all messages
-$template CrowdparkForwardFormat,"<\%PRI\%>%TIMESTAMP:::date-rfc3339% <%=node['rsyslog']['hostname']%> %msg%\n"
+$template CrowdparkForwardFormat,"<%%PRI%>%TIMESTAMP:::date-rfc3339% <%=node['rsyslog']['hostname']%> %msg%\n"
 
 <% @servers.each do |server| -%>
 <% case node['rsyslog']['protocol'] -%>
