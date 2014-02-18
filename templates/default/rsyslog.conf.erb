@@ -40,6 +40,10 @@ $InputTCPServerRun <%= node['rsyslog']['port'] %>
 $ModLoad imudp
 $UDPServerRun <%= node['rsyslog']['port'] %>
 <% end -%>
+<% else -%>
+# listen for local UDP messages (java log4j)
+$ModLoad imudp
+$UDPServerRun 514
 <% end -%>
 
 ###########################
